@@ -20,7 +20,7 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    this.props.createMessage(this.props.channelFromParams, this.props.currentUser, this.state.value);
     this.setState({ value: "" }) // resets message input
   }
 
@@ -32,7 +32,7 @@ class Form extends Component {
           type="text"
           className="form-control"
           autoComplete="off"
-          placeholder={`Message #${this.props.selectedChannel}`}
+          placeholder={`Message #${this.props.channelFromParams}`}
           value={this.state.value}
           onChange={this.handleChange}
         />
@@ -47,10 +47,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {
-    currentUser: state.currentUser,
-    selectedChannel: state.selectedChannel
-  };
+  return { currentUser: state.currentUser };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);

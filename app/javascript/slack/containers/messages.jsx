@@ -25,17 +25,17 @@ class Messages extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages(this.props.selectedChannel);
+    this.props.fetchMessages(this.props.channelFromParams);
   }
 
   render() {
     return (
       <div className="channel">
-        <h1>#{this.props.selectedChannel}</h1>
+        <h1>#{this.props.channelFromParams}</h1>
         <div className="messages" ref={(list) => {this.list = list;}}>
           {this.props.messages.map((message) => <Message key={message.id} message={message} />)}
         </div>
-        <Form />
+        <Form channelFromParams={this.props.channelFromParams}/>
       </div>
     );
   }
@@ -46,10 +46,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return {
-    messages: state.messages,
-    selectedChannel: state.selectedChannel
-  };
+  return { messages: state.messages };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messages);

@@ -11,12 +11,12 @@ const NavBar = () => {
   );
 }
 
-const App = () => {
+const App = (props) => {
   return (
     <div className="app">
       <NavBar />
-      <Channels />
-      <Messages />
+      <Channels channelFromParams={props.match.params.channel} />
+      <Messages channelFromParams={props.match.params.channel} />
     </div>
   );
 };
