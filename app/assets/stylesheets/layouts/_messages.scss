@@ -1,0 +1,26 @@
+.messages {
+  padding: 10px 0px;
+  height: calc(100vh - 15px - 34px - 40px - 24px);
+  overflow: scroll;
+}
+
+.message {
+  margin: 10px 0px;
+
+  .message-header {
+    display: flex;
+    align-items: center;
+
+    .message-author {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .message-datetime {
+      font-size: 10px;
+      color: #616061;
+      padding: 0px 10px;
+      text-transform: uppercase;
+    }
+  }
+}

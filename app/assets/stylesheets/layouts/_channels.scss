@@ -1,0 +1,51 @@
+.channels {
+  width: 220px;
+  background: #3E0E40;
+  color: #C5B8C6;
+  padding: 20px;
+
+  h1 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    margin: 0px;
+
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  ul {
+    list-style: none;
+    padding: 20px 0px;
+    margin: 0px;
+
+    li {
+      cursor: pointer;
+      padding-bottom: 2.5px;
+    }
+  }
+
+  .selected {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.channel {
+  width: calc(100vw - 280px);
+  padding: 20px;
+
+  h1 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #F4F4F4;
+  }
+}
