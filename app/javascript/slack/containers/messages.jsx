@@ -25,17 +25,17 @@ class Messages extends Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages(this.props.channelFromParams);
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
     return (
       <div className="channel">
-        <h1>#{this.props.channelFromParams}</h1>
+        <h1>#{this.props.selectedChannel}</h1>
         <div className="messages" ref={(list) => {this.list = list;}}>
           {this.props.messages.map((message) => <Message key={message.id} message={message} />)}
         </div>
-        <Form channelFromParams={this.props.channelFromParams}/>
+        <Form selectedChannel={this.props.selectedChannel}/>
       </div>
     );
   }

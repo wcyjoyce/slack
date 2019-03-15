@@ -15,8 +15,8 @@ const App = (props) => {
   return (
     <div className="app">
       <NavBar />
-      <Channels channelFromParams={props.match.params.channel} />
-      <Messages channelFromParams={props.match.params.channel} />
+      <Channels selectedChannel={props.match.params.channel} />
+      <Messages selectedChannel={props.match.params.channel} />
     </div>
   );
 };

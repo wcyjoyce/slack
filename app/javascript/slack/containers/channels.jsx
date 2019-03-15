@@ -1,14 +1,14 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
 import { fetchMessages } from "../actions";
 
 class Channels extends Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.channelFromParams !== this.props.channelFromParams) {
-      this.props.fetchMessages(nextProps.channelFromParams);
+    if (nextProps.selectedChannel !== this.props.selectedChannel) {
+      this.props.fetchMessages(nextProps.selectedChannel);
     }
   }
 
@@ -16,7 +16,7 @@ class Channels extends Component {
     return (
       <li
         key={channel}
-        className={channel === this.props.channelFromParams ? "selected" : null}
+        className={channel === this.props.selectedChannel ? "selected" : null}
       >
         <Link to={`/${channel}`}>
           #{channel}
