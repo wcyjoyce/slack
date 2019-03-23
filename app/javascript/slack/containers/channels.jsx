@@ -3,13 +3,18 @@ import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { fetchMessages } from "../actions";
+import { selectChannel, fetchMessages } from "../actions";
 
 class Channels extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedChannel !== this.props.selectedChannel) {
-      this.props.fetchMessages(nextProps.selectedChannel);
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.selectedChannel !== this.props.selectedChannel) {
+  //     this.props.fetchMessages(nextProps.selectedChannel);
+  //   }
+  // }
+
+  handleClick = (channel) => {
+    this.props.selectChannel();
+    this.props.fetchMessages(channel);
   }
 
   renderChannel = (channel) => {
@@ -17,8 +22,9 @@ class Channels extends Component {
       <li
         key={channel}
         className={channel === this.props.selectedChannel ? "selected" : null}
+        onClick={() => this.handleClick(channel)}
       >
-        <Link to={`/${channel}`}>
+        <Link to={`/channels/${channel}`}>
           #{channel}
         </Link>
       </li>
@@ -36,7 +42,7 @@ class Channels extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators( { fetchMessages: fetchMessages }, dispatch);
+  return bindActionCreators( { fetchMessages: fetchMessages, selectChannel: selectChannel }, dispatch);
 }
 
 function mapStateToProps(state) {
