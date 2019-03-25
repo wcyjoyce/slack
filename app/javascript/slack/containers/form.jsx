@@ -20,7 +20,8 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    // this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    this.props.createMessage(this.props.selectedChannel, this.state.value);
     this.setState({ value: "" }) // resets message input
   }
 
@@ -46,8 +47,9 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ createMessage: createMessage }, dispatch);
 }
 
-function mapStateToProps(state) {
-  return { currentUser: state.currentUser };
-}
+// function mapStateToProps(state) {
+//   return { currentUser: state.currentUser };
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+// export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form);
