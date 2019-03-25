@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Message from "../components/message.jsx";
 import Form from "../containers/form.jsx";
 
-import { fetchMessages } from "../actions";
+import { fetchMessages, postMessage } from "../actions";
 
 class Messages extends Component {
   componentWillMount() {
@@ -42,7 +42,7 @@ class Messages extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMessages: fetchMessages }, dispatch);
+  return bindActionCreators({ fetchMessages: fetchMessages, postMessage: postMessage }, dispatch);
 }
 
 function mapStateToProps(state) {
