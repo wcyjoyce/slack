@@ -9,6 +9,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import App from "./components/app";
 import messagesReducer from "./reducers/messages_reducer.js";
 
+const chatContainer = document.getElementById("chat_app");
+
 const initialState = {
   messages: [],
   // channels: ["general", "react", "london"],
@@ -33,5 +35,5 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>,
   // document.getElementById("root")
-  document.getElementById("chat_app")
+  chatContainer
 );
